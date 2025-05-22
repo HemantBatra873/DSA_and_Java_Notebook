@@ -10,5 +10,7 @@ Important Note -
 When mixing nextInt() and nextLine() method of the scanner always make sure to consume the \n (the new line character that is created when the user presses enter) by using an extra nextLine() function after the nextInt() or next() function because these fucntionns 
 do not eat the new line character \n.
 
+After using scanner you must close it by using scanner.close(); when you are done.
+
 ```
 import java.util.Scanner

@@ -14,3 +14,12 @@ After using scanner you must close it by using scanner.close(); when you are don
 
 ```
 import java.util.Scanner
+```
+In order to print array :  
+Arrays.toString(arr) method imported from java.util.Arrays.
+
+Note an important thing if you call a non-static method from you main method that is static it will give you an error because static method belongs to class and for non static methods we need an instance so you can either :
+1. Make your non static method static.
+2. Make an insatnce for the class and then call the method.
+   
+Now if you function does not have anything to do with the instances it will be better to go with option 1.

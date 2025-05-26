@@ -29,3 +29,45 @@ class Solution {
     }
 }
 ```
+
+## Print max sum subarray(Kadane)
+
+```
+public class MaxSumSubarray {
+    public static void main(String[] args) {
+        int[] arr = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+        findMaxSumSubarray(arr);
+    }
+
+    public static void findMaxSumSubarray(int[] arr) {
+        int maxSum = arr[0];
+        int currentSum = arr[0];
+        int start = 0;
+        int end = 0;
+        int tempStart = 0;
+
+        for (int i = 1; i < arr.length; i++) {
+            if (currentSum < 0) {
+                currentSum = arr[i];
+                tempStart = i;
+            } else {
+                currentSum += arr[i];
+            }
+
+            if (currentSum > maxSum) {
+                maxSum = currentSum;
+                start = tempStart;
+                end = i;
+            }
+        }
+
+        System.out.println("Maximum Sum: " + maxSum);
+        System.out.print("Subarray: [");
+        for (int i = start; i <= end; i++) {
+            System.out.print(arr[i]);
+            if (i < end) System.out.print(", ");
+        }
+        System.out.println("]");
+    }
+}
+```

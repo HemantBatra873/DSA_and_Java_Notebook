@@ -18,7 +18,9 @@ Return the longest subsequence repeated k times in string s. If multiple such su
 4. If it does then we update result to this new string and add it to the queue.
 5. For checking if the string is a k subsequence of another string we take two pointers i and c where i is the index of the currenct character that we are finding and c is the total count of the subsequence. 
 
+(The subsequences are automatically generated in lexicographical order because we are iterating from 'a' to 'z'.)
 
+### Code
 ```java
 class Solution {
     public String longestSubsequenceRepeatedK(String s, int k) {

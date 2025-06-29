@@ -15,7 +15,7 @@ First sort the array because without sorting we can't do the two Pointers approa
 
 Then pre compute powers of two upto the max length of array and mod it because it might not fit in integer range.
 
-Then initialise and,left and right.
+Then initialise ans, left and right.
 
 Then while loop runs until left <= right and if the nuns[left] + nuns[right] <= target then we can increment answer by 2 ^ (right - left) which means numbers from left + 1 to right. Then increment left as all values with left as smallest have been calculated.
 

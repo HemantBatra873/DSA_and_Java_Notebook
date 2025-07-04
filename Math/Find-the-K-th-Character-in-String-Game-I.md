@@ -1,4 +1,6 @@
-# Find the K-th Character in String Game I
+# Find the K-th Character in String Game I and II
+
+## 1st part 
 
 Alice and Bob are playing a game. Initially, Alice has a string word = "a".
 
@@ -56,3 +58,45 @@ This is because instead of brute force we just keep decreasing k in powers of 2
 
 ### Space complexity - O(1)
 No extra space was used
+
+## 2nd part 
+
+Alice and Bob are playing a game. Initially, Alice has a string word = "a".
+
+You are given a positive integer k. You are also given an integer array operations, where operations[i] represents the type of the ith operation.
+
+Now Bob will ask Alice to perform all operations in sequence:
+
+If operations[i] == 0, append a copy of word to itself.
+If operations[i] == 1, generate a new string by changing each character in word to its next character in the English alphabet, and append it to the original word. For example, performing the operation on "c" generates "cd" and performing the operation on "zb" generates "zbac".
+Return the value of the kth character in word after performing all the operations.
+
+Note that the character 'z' can be changed to 'a' in the second type of operation.
+
+### Learnings 
+
+Just like 1st part but we need to keep in mind that the current k character came from which operation and based on that we determine how many characters ahead of 'a' have we came.
+
+### Code (Beats 100%)
+
+```java
+class Solution {
+    public char kthCharacter(long k, int[] o) {
+        int swaps = 0;
+        while(k > 1){
+            long len = 1l;
+            int idx = 0;
+            while(len * 2 < k){
+                idx++;
+                len *= 2;
+            }
+            if(o[idx] == 1){
+                swaps++;
+            }
+            k -= len;
+        }
+        swaps = swaps % 26;
+        return (char)('a' + swaps);
+    }
+}
+```

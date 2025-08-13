@@ -6,3 +6,5 @@ A comprehensive repository of solved Data Structures and Algorithms problems. In
 
 https://neetcode.io/practice?tab=systemDesign
 
+https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2/
+

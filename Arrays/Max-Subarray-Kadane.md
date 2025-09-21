@@ -74,7 +74,16 @@ public class MaxSumSubarray {
 
 # MaxProduct Subarray Kadane's 
 
+## Question
+
+Given an integer array nums, find a subarray that has the largest product within the array and return it.
+
+A subarray is a contiguous non-empty sequence of elements within an array.
+
+You can assume the output will fit into a 32-bit integer.
+
 ## Key understanding
+
 Initially I thought of kadane but as soon as I thought the sum could get -ve I left that approach but kadane was actually right we just need to modify the approach slightly and maintain the current minimum along with current maximum because in the next step current max can become current min and current min can become current max.
 
 ```java

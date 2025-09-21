@@ -10,7 +10,7 @@ Given an integer array nums, find the subarray with the largest sum, and return 
 4. If current sum is not positive it adds nothing to the arrays that we will be forming with later numbers so we remove them by setting sum to 0.
 
 ## Code (Kadane Algorithm)
-```
+```java
 class Solution {
     public int maxSubArray(int[] nums) {
         int maxSum = Integer.MIN_VALUE;
@@ -32,7 +32,7 @@ class Solution {
 
 ## Print max sum subarray(Kadane)
 
-```
+```java
 public class MaxSumSubarray {
     public static void main(String[] args) {
         int[] arr = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
@@ -68,6 +68,28 @@ public class MaxSumSubarray {
             if (i < end) System.out.print(", ");
         }
         System.out.println("]");
+    }
+}
+```
+
+# MaxProduct Subarray Kadane's 
+
+## Key understanding
+Initially I thought of kadane but as soon as I thought the sum could get -ve I left that approach but kadane was actually right we just need to modify the approach slightly and maintain the current minimum along with current maximum because in the next step current max can become current min and current min can become current max.
+
+```java
+public class Solution {
+    public int maxProduct(int[] nums) {
+        int res = nums[0];
+        int curMin = 1, curMax = 1;
+
+        for (int num : nums) {
+            int tmp = curMax * num;
+            curMax = Math.max(Math.max(num * curMax, num * curMin), num);
+            curMin = Math.min(Math.min(tmp, num * curMin), num);
+            res = Math.max(res, curMax);
+        }
+        return res;
     }
 }
 ```

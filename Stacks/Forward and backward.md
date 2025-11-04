@@ -1,5 +1,7 @@
 ## Two different patterns of finding Next Greater/Smaller
 
+https://leetcode.com/problems/largest-rectangle-in-histogram/submissions/1820401799/
+
 1. **Backward checking (standard)** — we move from the end toward the start (right → left) and directly find the next element for each bar.
 2. **Forward checking (builder)** — we move from start → end and for each new element, we pop from stack to resolve all the elements whose "next" we’ve just found.
 

@@ -24,7 +24,7 @@ We can actually also do this without the stack by keeping some variables but thi
 
 ## With stack solution 
 
-```
+```java
 
 class Solution {
     public int carFleet(int target, int[] position, int[] speed) {
@@ -54,7 +54,7 @@ class Solution {
     }
 }
 
-```
+```java
 
 ## Without Stack same logic 
 

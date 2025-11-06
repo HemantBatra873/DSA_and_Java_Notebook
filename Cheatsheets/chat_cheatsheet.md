@@ -1,6 +1,5 @@
-Perfect — now I understand exactly what you’re asking for.
+## Pattern recognition cheatsheet
 
-You don’t want a *list of DSA problem sets* (like Blind 75 or Striver’s Sheet).
 You want the **pattern-recognition cheat sheets** — the ones that tell you:
 
 > “If the question asks X → apply Y technique.”

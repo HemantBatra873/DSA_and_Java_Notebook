@@ -1,6 +1,6 @@
 # Algorithm Types and Properties (DSA Exam Guide)
 
-This document explains the **first four major classifications** of algorithms that are commonly asked in DSA exams.
+This document explains the **four major classifications** of algorithms that are commonly asked in DSA exams.
 
 ---
 

@@ -42,9 +42,10 @@ int lowerBound(int[] arr, int target) {
 
 Example Usage
 
+```java
 int[] arr = {1, 3, 5, 7, 9};
 int idx = lowerBound(arr, 6); // returns 3 (element 7)
-
+```
 Properties
 
 Interval shrinks strictly each step → no infinite loop.
@@ -89,9 +90,11 @@ int binarySearch(int[] arr, int target) {
 
 Example Usage
 
+```java
 int[] arr = {2, 4, 6, 8, 10};
 int idx = binarySearch(arr, 8); // returns 3
 int idx2 = binarySearch(arr, 5); // returns -1 (not found)
+```
 
 Properties
 

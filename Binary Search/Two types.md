@@ -108,20 +108,6 @@ Must handle bounds carefully to avoid infinite loops.
 
 ---
 
-🧩 Summary Table
-
-Feature	while (l < r)	while (l <= r)
-
-Interval type	Half-open [l, r)	Closed [l, r]
-Common use	Boundary search (first/last true)	Exact match search
-End condition	l == r	l > r
-Updates	r = mid or l = mid + 1	r = mid - 1 or l = mid + 1
-Infinite loop risk	Low	Medium (must update correctly)
-Returns	Boundary index	Element index or -1
-
-
-
----
 
 💡 Rule of Thumb
 

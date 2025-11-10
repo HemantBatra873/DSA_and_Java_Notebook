@@ -1,4 +1,4 @@
-Binary Search Variants: while (l < r) vs while (l <= r)
+## Binary Search Variants: while (l < r) vs while (l <= r)
 
 Binary search has two major loop variants depending on how we define the search interval:
 
@@ -25,6 +25,7 @@ Commonly used for boundary finding problems (e.g., lower bound, upper bound).
 
 Typical Implementation (Java)
 
+```java
 int lowerBound(int[] arr, int target) {
     int l = 0, r = arr.length; // [l, r)
     while (l < r) {
@@ -37,6 +38,7 @@ int lowerBound(int[] arr, int target) {
     }
     return l; // first index where arr[l] >= target
 }
+```
 
 Example Usage
 
@@ -68,6 +70,7 @@ Commonly used for exact match searches.
 
 Typical Implementation (Java)
 
+```java
 int binarySearch(int[] arr, int target) {
     int l = 0, r = arr.length - 1; // [l, r]
     while (l <= r) {
@@ -82,6 +85,7 @@ int binarySearch(int[] arr, int target) {
     }
     return -1; // not found
 }
+```
 
 Example Usage
 

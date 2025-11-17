@@ -26,18 +26,19 @@ Commonly used for boundary finding problems (e.g., lower bound, upper bound).
 Typical Implementation (Java)
 
 ```java
-int lowerBound(int[] arr, int target) {
-    int l = 0, r = arr.length; // [l, r)
+public static int lowerBound(int[] arr, int target) {
+    int l = 0, r = arr.length; // notice r = n (exclusive)
     while (l < r) {
         int mid = l + (r - l) / 2;
-        if (arr[mid] >= target) {
-            r = mid; // mid might be the answer
+        if (arr[mid] < target) {
+            l = mid + 1;
         } else {
-            l = mid + 1; // exclude mid
+            r = mid;
         }
     }
-    return l; // first index where arr[l] >= target
+    return l; // or r (both same)
 }
+
 ```
 
 Example Usage

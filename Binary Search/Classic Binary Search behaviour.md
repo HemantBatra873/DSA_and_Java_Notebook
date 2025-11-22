@@ -133,7 +133,3 @@ These modify the behavior so equality does NOT stop the search.
 ### Modified binary search
 
 * Use it when you need **first** or **last** occurrence.
-
----
-
-Let me know if you want a diagram version or Java code examples for each case.

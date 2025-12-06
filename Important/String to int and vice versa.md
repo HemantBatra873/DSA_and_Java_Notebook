@@ -1,5 +1,9 @@
 # Integer ↔ String Conversion in Java
 
+## Very important 
+
+Never use these methods for char to int conversions because chars get promoted to their ASCII values and will lead to wrong int values. '1' will become 49 in int.
+
 ## 1. Convert Integer to String
 
 ### Method 1: `String.valueOf(int)` (Recommended)

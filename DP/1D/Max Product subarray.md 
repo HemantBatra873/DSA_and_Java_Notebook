@@ -7,6 +7,7 @@ https://leetcode.com/problems/maximum-product-subarray/solutions/5714609/arrays-
 and 
 
 ```java 
+
 public class Solution {
     public int maxProduct(int[] nums) {
         int res = nums[0];
@@ -21,6 +22,7 @@ public class Solution {
         return res;
     }
 }
+
 ```
 
 ## Understanding (Second Code)

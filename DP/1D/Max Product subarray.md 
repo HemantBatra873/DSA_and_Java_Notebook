@@ -33,5 +33,5 @@ The previous currMin could become the next currMax after being multiplied by a -
 
 CurrMax must be the largest product currently possible it's value should increase only and never decrease.
 
-CurrMin is the most negative values we have right now it's value should decrease monotonously.
+CurrMin is the most negative values we have right now it's value should decrease and never increase.
 

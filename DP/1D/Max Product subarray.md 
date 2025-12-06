@@ -1,0 +1,37 @@
+# Max Product subarray 
+
+## Solutions 
+
+https://leetcode.com/problems/maximum-product-subarray/solutions/5714609/arrays-java-by-hemant-batra-91uv/
+
+and 
+
+```java 
+public class Solution {
+    public int maxProduct(int[] nums) {
+        int res = nums[0];
+        int curMin = 1, curMax = 1;
+
+        for (int num : nums) {
+            int tmp = curMax * num;
+            curMax = Math.max(Math.max(num * curMax, num * curMin), num);
+            curMin = Math.min(Math.min(tmp, num * curMin), num);
+            res = Math.max(res, curMax);
+        }
+        return res;
+    }
+}
+```
+
+## Understanding (Second Code)
+
+temp variable is very useful as currMax will be updated and we need the value before to update the currMin.
+
+We go to every number multiply with currMin and currMax.
+
+The previous currMin could become the next currMax after being multiplied by a -ve and vice versa. Also it can be that a number is greater than both currMax and currMin because both of them were -ve so we just start from there again.
+
+CurrMax must be the largest product currently possible it's value should increase only and never decrease.
+
+CurrMin is the most negative values we have right now it's value should decrease monotonously.
+

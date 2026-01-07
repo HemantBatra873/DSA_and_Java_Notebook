@@ -120,14 +120,3 @@ GM = √(ab)
 n = log(aₙ / a) / log(r) + 1
 
 (Used rarely, but mathematically valid.)
-
----
-
-## Minimum You Must Memorize
-
-* AP n-th term
-* AP sum of n terms
-* GP n-th term
-* GP sum (finite and infinite)
-
-Everything else can be derived during the interview.

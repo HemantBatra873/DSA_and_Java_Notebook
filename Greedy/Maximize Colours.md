@@ -17,7 +17,7 @@ https://www.codechef.com/practice/course/2-star-difficulty-problems/DIFF1500/pro
 - the array of the colour should be sorted 
 other wise this case will create problem - 
 
-3
-2 2 3
-2 3 2
-3 2 2
+3    
+2 2 3   
+2 3 2  
+3 2 2  

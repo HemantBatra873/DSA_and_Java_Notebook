@@ -1,7 +1,5 @@
 # BufferedReader & StringTokenizer – Complete Replacement for Scanner
 
----
-
 ## 1. Why avoid Scanner?
 
 | Reason             | Explanation                  |

@@ -1,7 +1,5 @@
 # Arithmetic Progression (AP) and Geometric Progression (GP)
 
----
-
 ## Arithmetic Progression (AP)
 
 An **Arithmetic Progression** is a sequence in which the **difference between consecutive terms is constant**.

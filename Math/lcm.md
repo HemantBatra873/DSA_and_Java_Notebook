@@ -1,7 +1,5 @@
 # LCM (Least Common Multiple) in Java
 
----
-
 ## 1. Mathematical Formula
 
 For two numbers:

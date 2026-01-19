@@ -1,7 +1,5 @@
 # GCD (Greatest Common Divisor) in Java
 
----
-
 ## 1. What is GCD?
 
 GCD (Greatest Common Divisor) is the **largest positive integer** that divides two or more numbers without leaving a remainder.

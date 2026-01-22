@@ -154,35 +154,3 @@ Example:
 ```java
 (int)Math.pow(2, 50)   // Incorrect
 ```
-
----
-
-## 7. Usage in Your Code
-
-```java
-System.out.println(Codechef.Power(cnt) - 1);
-```
-
-This computes:
-
-```
-2^cnt - 1
-```
-
-Commonly used to count **non-empty subsets**.
-
----
-
-## Conclusion
-
-Binary exponentiation is:
-
-* Faster
-* More accurate
-* More controllable than Math.pow()
-
-Highly recommended for:
-
-* Algorithm problems
-* Large exponent calculations
-* Modular arithmetic

@@ -1,521 +1,116 @@
-Graph Algorithms Cheat Sheet (Time & Space Complexity + Reasoning)
+# Graph Algorithms — Time & Space Complexity
 
-Notation
+## Traversal Algorithms
 
-- V = Number of Vertices
-- E = Number of Edges
-
----
-
-1. Breadth First Search (BFS)
-
-Time Complexity
-
-O(V + E)
-
-Space Complexity
-
-O(V)
-
-Reasoning
-
-- Every vertex is visited once.
-- Every edge is explored once.
-- Queue may contain up to V vertices.
-
-Use Cases
-
-- Shortest path in unweighted graphs
-- Level-order traversal
-- Connectivity checking
+| Algorithm | Time Complexity | Space Complexity | Notes |
+|-----------|----------------|-----------------|-------|
+| **BFS** (Breadth-First Search) | O(V + E) | O(V) | Queue-based; explores level by level |
+| **DFS** (Depth-First Search) | O(V + E) | O(V) | Stack/recursion; O(V) for call stack |
 
 ---
 
-2. Depth First Search (DFS)
+## Shortest Path Algorithms
 
-Time Complexity
-
-O(V + E)
-
-Space Complexity
-
-O(V)
-
-Reasoning
-
-- Every node is visited once.
-- Every edge is traversed once.
-- Recursion stack can grow up to V.
-
-Use Cases
-
-- Connected Components
-- Cycle Detection
-- Topological Sort
-- SCC Detection
+| Algorithm | Time Complexity | Space Complexity | Notes |
+|-----------|----------------|-----------------|-------|
+| **Dijkstra's** (binary heap) | O((V + E) log V) | O(V) | Single-source; non-negative weights only |
+| **Dijkstra's** (Fibonacci heap) | O(E + V log V) | O(V) | Theoretically optimal; rarely used in practice |
+| **Bellman-Ford** | O(V · E) | O(V) | Single-source; handles negative weights |
+| **Floyd-Warshall** | O(V³) | O(V²) | All-pairs shortest paths |
+| **Johnson's Algorithm** | O(V² log V + VE) | O(V²) | All-pairs; better than Floyd-Warshall on sparse graphs |
+| **A\*** | O(E log V) | O(V) | Heuristic-guided; optimal with admissible heuristic |
+| **SPFA** (Shortest Path Faster) | O(VE) worst case | O(V) | Bellman-Ford with queue optimization; fast in practice |
 
 ---
 
-3. Topological Sort (DFS)
+## Minimum Spanning Tree (MST)
 
-Time Complexity
-
-O(V + E)
-
-Space Complexity
-
-O(V)
-
-Reasoning
-
-- DFS visits every node and edge once.
-- Stack stores nodes by finishing time.
-
-Use Cases
-
-- Course Schedule
-- Dependency Resolution
-- DAG Processing
+| Algorithm | Time Complexity | Space Complexity | Notes |
+|-----------|----------------|-----------------|-------|
+| **Kruskal's** | O(E log E) | O(V + E) | Sort edges + Union-Find |
+| **Prim's** (adjacency matrix) | O(V²) | O(V) | Best for dense graphs |
+| **Prim's** (binary heap) | O(E log V) | O(V) | Best for sparse graphs |
+| **Prim's** (Fibonacci heap) | O(E + V log V) | O(V) | Optimal asymptotically |
+| **Borůvka's** | O(E log V) | O(V + E) | Parallel-friendly |
 
 ---
 
-4. Topological Sort (Kahn's Algorithm)
+## Topological Sort
 
-Time Complexity
-
-O(V + E)
-
-Space Complexity
-
-O(V)
-
-Reasoning
-
-- Every node enters queue once.
-- Every edge decreases indegree once.
-
-Use Cases
-
-- DAG Ordering
-- Directed Cycle Detection
+| Algorithm | Time Complexity | Space Complexity | Notes |
+|-----------|----------------|-----------------|-------|
+| **Kahn's Algorithm** (BFS-based) | O(V + E) | O(V) | Works on DAGs only; detects cycles |
+| **DFS-based Topo Sort** | O(V + E) | O(V) | Post-order DFS traversal |
 
 ---
 
-5. Cycle Detection (Undirected Graph - DFS)
+## Strongly Connected Components (SCC)
 
-Time Complexity
-
-O(V + E)
-
-Space Complexity
-
-O(V)
-
-Reasoning
-
-- Standard DFS traversal.
-- Parent tracking avoids false cycle detection.
+| Algorithm | Time Complexity | Space Complexity | Notes |
+|-----------|----------------|-----------------|-------|
+| **Kosaraju's** | O(V + E) | O(V) | Two DFS passes; intuitive |
+| **Tarjan's** | O(V + E) | O(V) | Single DFS pass with stack |
+| **Gabow's** | O(V + E) | O(V) | Variation of Tarjan's |
 
 ---
 
-6. Cycle Detection (Undirected Graph - BFS)
+## Network Flow
 
-Time Complexity
-
-O(V + E)
-
-Space Complexity
-
-O(V)
-
-Reasoning
-
-- Queue-based traversal.
-- Every node and edge processed once.
+| Algorithm | Time Complexity | Space Complexity | Notes |
+|-----------|----------------|-----------------|-------|
+| **Ford-Fulkerson** (DFS) | O(E · max_flow) | O(V + E) | Can be slow with irrational capacities |
+| **Edmonds-Karp** (BFS) | O(V · E²) | O(V + E) | Ford-Fulkerson + BFS augmentation |
+| **Dinic's Algorithm** | O(V² · E) | O(V + E) | Much faster in practice |
+| **Push-Relabel** | O(V² · √E) | O(V + E) | Generally fastest in practice |
+| **Hungarian Algorithm** | O(V³) | O(V²) | Min-cost bipartite matching |
 
 ---
 
-7. Cycle Detection (Directed Graph - DFS)
+## Cycle Detection
 
-Time Complexity
-
-O(V + E)
-
-Space Complexity
-
-O(V)
-
-Reasoning
-
-- Uses visited[] and pathVisited[] arrays.
-- Each node processed once.
+| Algorithm | Time Complexity | Space Complexity | Notes |
+|-----------|----------------|-----------------|-------|
+| **DFS-based** (directed) | O(V + E) | O(V) | Uses recursion stack coloring |
+| **DFS-based** (undirected) | O(V + E) | O(V) | Tracks parent node |
+| **Floyd's Cycle Detection** | O(V) | O(1) | For linked lists; not general graphs |
+| **Union-Find** (undirected) | O(E · α(V)) ≈ O(E) | O(V) | α is inverse Ackermann; near-constant |
 
 ---
 
-8. Cycle Detection (Directed Graph - Kahn's Algorithm)
+## Bipartite / Matching
 
-Time Complexity
-
-O(V + E)
-
-Space Complexity
-
-O(V)
-
-Reasoning
-
-- Topological sorting processes all nodes.
-- If processed nodes < V, cycle exists.
+| Algorithm | Time Complexity | Space Complexity | Notes |
+|-----------|----------------|-----------------|-------|
+| **Bipartite Check** (BFS/DFS) | O(V + E) | O(V) | Two-color the graph |
+| **Hopcroft-Karp** | O(E · √V) | O(V + E) | Maximum bipartite matching |
+| **Kuhn's Algorithm** | O(V · E) | O(V + E) | Simpler max bipartite matching |
 
 ---
 
-9. Bipartite Graph Check
+## Other Important Algorithms
 
-Time Complexity
-
-O(V + E)
-
-Space Complexity
-
-O(V)
-
-Reasoning
-
-- Two-coloring via BFS/DFS.
-- Every node and edge visited once.
+| Algorithm | Time Complexity | Space Complexity | Notes |
+|-----------|----------------|-----------------|-------|
+| **Bridges / Articulation Points** | O(V + E) | O(V) | Tarjan's bridge-finding |
+| **Euler Path/Circuit** (Hierholzer's) | O(V + E) | O(V + E) | Requires Eulerian conditions |
+| **Hamiltonian Path** | O(2ᵛ · V²) | O(2ᵛ · V) | NP-Complete; bitmask DP |
+| **Coloring** (Greedy) | O(V + E) | O(V) | Not always optimal |
+| **Union-Find** (with path compression) | O(α(V)) per op | O(V) | Near O(1); used in many graph algorithms |
 
 ---
 
-10. Disjoint Set Union (Union Find)
+## Notation Reference
 
-Time Complexity
+| Symbol | Meaning |
+|--------|---------|
+| **V** | Number of vertices (nodes) |
+| **E** | Number of edges |
+| **α(V)** | Inverse Ackermann function — effectively constant |
+| **log V** | Base-2 logarithm of V |
 
-- Find → O(α(N))
-- Union → O(α(N))
-
-Space Complexity
-
-O(N)
-
-Reasoning
-
-- Path Compression
-- Union by Rank / Size
-- α(N) ≈ Constant
-
-Use Cases
-
-- Kruskal
-- Dynamic Connectivity
+> **Dense graph:** E ≈ V²  
+> **Sparse graph:** E ≈ V
 
 ---
 
-11. Kruskal's Algorithm
-
-Time Complexity
-
-O(E log E)
-
-Space Complexity
-
-O(V)
-
-Reasoning
-
-1. Sort edges → O(E log E)
-2. DSU operations → O(E α(V))
-
-Sorting dominates.
-
-Use Cases
-
-- Minimum Spanning Tree
-
----
-
-12. Prim's Algorithm
-
-Time Complexity
-
-O(E log V)
-
-Space Complexity
-
-O(V)
-
-Reasoning
-
-- Priority Queue stores candidate edges.
-- Heap operations cost O(log V).
-
-Use Cases
-
-- Minimum Spanning Tree
-
----
-
-13. Dijkstra's Algorithm
-
-Time Complexity
-
-O(E log V)
-
-Space Complexity
-
-O(V)
-
-Reasoning
-
-- Every edge may relax once.
-- Heap operations dominate.
-
-Condition
-
-- No negative-weight edges.
-
-Use Cases
-
-- Single Source Shortest Path
-
----
-
-14. Bellman-Ford Algorithm
-
-Time Complexity
-
-O(V × E)
-
-Space Complexity
-
-O(V)
-
-Reasoning
-
-- Relax all edges exactly V−1 times.
-- Extra pass checks negative cycle.
-
-Condition
-
-- Supports negative edges.
-
-Use Cases
-
-- Shortest Path
-- Negative Cycle Detection
-
----
-
-15. Floyd-Warshall Algorithm
-
-Time Complexity
-
-O(V³)
-
-Space Complexity
-
-O(V²)
-
-Reasoning
-
-Triple nested loops:
-
-for k
-   for i
-      for j
-
-Use Cases
-
-- All-Pairs Shortest Paths
-- Negative Cycle Detection
-
----
-
-16. Shortest Path in DAG
-
-Time Complexity
-
-O(V + E)
-
-Space Complexity
-
-O(V)
-
-Reasoning
-
-1. Topological Sort → O(V + E)
-2. Relax each edge once.
-
-Use Cases
-
-- Fast shortest paths in DAGs
-
----
-
-17. Kosaraju Algorithm (SCC)
-
-Time Complexity
-
-O(V + E)
-
-Space Complexity
-
-O(V + E)
-
-Reasoning
-
-1. DFS ordering
-2. Reverse graph
-3. DFS on transpose
-
-All linear operations.
-
-Use Cases
-
-- Strongly Connected Components
-
----
-
-18. Tarjan Algorithm (SCC)
-
-Time Complexity
-
-O(V + E)
-
-Space Complexity
-
-O(V)
-
-Reasoning
-
-- Single DFS traversal.
-- Uses discovery and low arrays.
-
-Use Cases
-
-- Strongly Connected Components
-
----
-
-19. Bridges in Graph
-
-Time Complexity
-
-O(V + E)
-
-Space Complexity
-
-O(V)
-
-Reasoning
-
-- DFS computes discovery and low values.
-
-Use Cases
-
-- Critical Connections
-
----
-
-20. Articulation Points
-
-Time Complexity
-
-O(V + E)
-
-Space Complexity
-
-O(V)
-
-Reasoning
-
-- DFS with low-link values.
-
-Use Cases
-
-- Critical Vertices
-
----
-
-21. Connected Components
-
-Time Complexity
-
-O(V + E)
-
-Space Complexity
-
-O(V)
-
-Reasoning
-
-- Run DFS/BFS from each unvisited node.
-
----
-
-22. Multi-Source BFS
-
-Time Complexity
-
-O(V + E)
-
-Space Complexity
-
-O(V)
-
-Reasoning
-
-- Same as BFS.
-- Multiple starting nodes.
-
-Use Cases
-
-- Nearest Distance Problems
-
----
-
-23. 0-1 BFS
-
-Time Complexity
-
-O(V + E)
-
-Space Complexity
-
-O(V)
-
-Reasoning
-
-- Uses Deque.
-- Each edge processed once.
-
-Condition
-
-- Edge weights only 0 or 1.
-
-Use Cases
-
-- Faster than Dijkstra for 0/1 weights.
-
----
-
-Quick Revision Table
-
-Algorithm| Time| Space
-BFS| O(V+E)| O(V)
-DFS| O(V+E)| O(V)
-Topological Sort| O(V+E)| O(V)
-Cycle Detection| O(V+E)| O(V)
-Bipartite Check| O(V+E)| O(V)
-DSU| O(α(N))| O(N)
-Kruskal| O(E log E)| O(V)
-Prim| O(E log V)| O(V)
-Dijkstra| O(E log V)| O(V)
-Bellman-Ford| O(VE)| O(V)
-Floyd-Warshall| O(V³)| O(V²)
-DAG Shortest Path| O(V+E)| O(V)
-Kosaraju| O(V+E)| O(V+E)
-Tarjan SCC| O(V+E)| O(V)
-Bridges| O(V+E)| O(V)
-Articulation Points| O(V+E)| O(V)
-Multi-Source BFS| O(V+E)| O(V)
-0-1 BFS| O(V+E)| O(V)
+*Space complexity generally excludes the input graph itself (adjacency list = O(V + E), adjacency matrix = O(V²)).*

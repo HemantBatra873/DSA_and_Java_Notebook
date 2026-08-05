@@ -6,8 +6,7 @@ static class FastScanner {
     StringTokenizer st;
 
     String next() throws IOException {
-        while (st == null || !st.hasMoreTokens())
-            st = new StringTokenizer(br.readLine());
+        while (st == null || !st.hasMoreTokens()) st = new StringTokenizer(br.readLine());
         return st.nextToken();
     }
 

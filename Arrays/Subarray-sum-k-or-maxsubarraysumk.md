@@ -4,7 +4,7 @@ Given an array of integers nums and an integer k, return the total number of sub
 
 A subarray is a contiguous non-empty sequence of elements within an array.
 
-This problem would be much easier if we are promised only positive integers.
+This problem would be much easier if we are promised only positive integers. As there wont be a possibility of subarrays with sum 0 due to negative numbers.
 
 ## Steps
 1. ans = 0 , sum = 0

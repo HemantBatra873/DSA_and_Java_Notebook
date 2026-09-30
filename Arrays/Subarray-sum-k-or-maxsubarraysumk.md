@@ -17,7 +17,7 @@ This problem would be much easier if we are promised only positive integers. As 
 
 ## Code
 
-```
+```java
 class Solution {
     public int subarraySum(int[] nums, int k) {
         int ans = 0;

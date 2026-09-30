@@ -17,8 +17,6 @@ So we can add:
 mid - leftIndex + 1
 ```
 
-genui{"learning_viz":{"type_id":"MERGE_SORT","initial_values":{"value1":5,"value2":3,"value3":2,"value4":4,"value5":1,"value6":7,"value7":6,"value8":8}}}
-
 ### Java
 
 ```java

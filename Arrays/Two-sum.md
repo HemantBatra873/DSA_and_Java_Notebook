@@ -17,3 +17,9 @@ public static int[] twoSum(int[] nums, int target) {
         return new int[]{};
     }
 ```
+
+# Important
+
+1. 2 sum - about hashmap
+2. 3 sum - about sorting + 2 pointers
+3. 4 sum - also sorting + 2 pointers

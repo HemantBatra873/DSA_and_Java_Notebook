@@ -155,3 +155,114 @@ ans = Math.max(ans, index - map.get(sum - k));
 
 **Time:** `O(n)`
 **Space:** `O(n)`
+
+
+
+# Count subarrays with given xor K
+
+Given an array of integers nums and an integer k, return the total number of subarrays whose XOR equals to k.
+
+Yes. This is **almost exactly the same prefix-sum approach**, except you use **prefix XOR instead of prefix sum**.
+
+The key identity is:
+
+```text
+prefixXor ^ previousPrefixXor = k
+```
+
+Therefore:
+
+```text
+previousPrefixXor = prefixXor ^ k
+```
+
+So your HashMap stores the **frequency** of each prefix XOR, just like your original `subarraySum()` solution stores prefix-sum frequencies.
+
+```java
+class Solution {
+    public int subarraysWithXorK(int[] nums, int k) {
+        int answer = 0;
+        int xor = 0;
+
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(0, 1);
+
+        for (int num : nums) {
+            xor ^= num;
+
+            if (map.containsKey(xor ^ k)) {
+                answer += map.get(xor ^ k);
+            }
+
+            map.put(xor, map.getOrDefault(xor, 0) + 1);
+        }
+
+        return answer;
+    }
+}
+```
+
+### Compare it with your sum version
+
+Your original:
+
+```java
+sum += num;
+
+if (map.containsKey(sum - k)) {
+    answer += map.get(sum - k);
+}
+```
+
+XOR version:
+
+```java
+xor ^= num;
+
+if (map.containsKey(xor ^ k)) {
+    answer += map.get(xor ^ k);
+}
+```
+
+That's basically the only conceptual change.
+
+### Why `xor ^ k`?
+
+Suppose:
+
+```text
+prefixXor = A
+previousPrefixXor = B
+```
+
+The XOR of the subarray between them is:
+
+```text
+A ^ B
+```
+
+We want:
+
+```text
+A ^ B = k
+```
+
+XOR both sides with `k`:
+
+```text
+A ^ B ^ k = k ^ k
+A ^ k = B
+```
+
+Therefore:
+
+```text
+B = A ^ k
+```
+
+So whenever we've already seen `xor ^ k`, every occurrence represents a subarray ending at the current index whose XOR is `k`.
+
+And just like your original `subarraySum()` solution, we store **frequencies**, because multiple previous prefix XORs can produce multiple valid subarrays.
+
+**Time:** `O(n)`
+**Space:** `O(n)`

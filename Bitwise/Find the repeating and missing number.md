@@ -1,6 +1,6 @@
 # Find the repeating and missing number
 
-Very similar approach to Similar Number 2 problem on Leetcode.
+Very similar approach to Single Number 2 problem on Leetcode.
 
 ```java
 class Solution {
